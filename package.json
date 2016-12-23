@@ -15,6 +15,7 @@
     "babel-preset-react": "^6.16.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-router": "^3.0.0",
     "webpack": "^1.14.0"
   },
   "babel": {
@@ -22,5 +23,9 @@
       "es2015",
       "react"
     ]
+  },
+  "scripts": {
+    "dev": "webpack",
+    "prod": "webpack --config ./webpack.min.config.js"
   }
 }

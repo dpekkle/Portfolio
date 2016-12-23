@@ -8,14 +8,24 @@ var config = {
 	entry: DEV + "/index.jsx",
 	output: {
 		path: OUTPUT,
-		filename: "dev.js"
+		filename: "prod.js"
 	},
     module: {
         loaders: [{
             include: DEV,
             loader: "babel",
         }]
-    }
+    },
+    plugins: [
+	    new webpack.DefinePlugin({
+			'process.env':{
+	        	'NODE_ENV': JSON.stringify('production') //tells react to use the production version
+	      	}
+	    }),
+		new webpack.optimize.DedupePlugin(),
+		new webpack.optimize.UglifyJsPlugin(),
+		new webpack.optimize.AggressiveMergingPlugin()
+    ]
 };
  
 module.exports = config;
