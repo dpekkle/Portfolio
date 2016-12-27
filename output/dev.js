@@ -80,20 +80,109 @@
 	                _react2.default.createElement(
 	                    "li",
 	                    null,
-	                    "About"
+	                    _react2.default.createElement(
+	                        _reactRouter.IndexLink,
+	                        { to: "/", activeClassName: "active" },
+	                        "About"
+	                    )
 	                ),
 	                _react2.default.createElement(
 	                    "li",
 	                    null,
-	                    "Projects"
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { to: "/projects", activeClassName: "active" },
+	                        "Projects"
+	                    )
 	                ),
 	                _react2.default.createElement(
 	                    "li",
 	                    null,
-	                    "Contact"
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { to: "/contact", activeClassName: "active" },
+	                        "Contact"
+	                    )
 	                )
 	            ),
-	            _react2.default.createElement("div", { className: "content" })
+	            _react2.default.createElement(
+	                "div",
+	                { className: "content" },
+	                this.props.children
+	            )
+	        );
+	    }
+	});
+
+	var About = _react2.default.createClass({
+	    displayName: "About",
+
+	    render: function render() {
+	        return _react2.default.createElement(
+	            "div",
+	            null,
+	            _react2.default.createElement(
+	                "h2",
+	                null,
+	                "HELLO"
+	            ),
+	            _react2.default.createElement(
+	                "p",
+	                null,
+	                "Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	            ),
+	            _react2.default.createElement(
+	                "p",
+	                null,
+	                "Duis a turpis sed lacus dapibus elementum sed eu lectus."
+	            )
+	        );
+	    }
+	});
+
+	var Projects = _react2.default.createClass({
+	    displayName: "Projects",
+
+	    render: function render() {
+	        return _react2.default.createElement(
+	            "div",
+	            null,
+	            _react2.default.createElement(
+	                "h2",
+	                null,
+	                "Heres my projects"
+	            ),
+	            _react2.default.createElement(
+	                "p",
+	                null,
+	                "Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	            ),
+	            _react2.default.createElement(
+	                "p",
+	                null,
+	                "Duis a turpis sed lacus dapibus elementum sed eu lectus."
+	            )
+	        );
+	    }
+	});
+
+	var Contact = _react2.default.createClass({
+	    displayName: "Contact",
+
+	    render: function render() {
+	        return _react2.default.createElement(
+	            "div",
+	            null,
+	            _react2.default.createElement(
+	                "h2",
+	                null,
+	                "Got Questions?"
+	            ),
+	            _react2.default.createElement(
+	                "p",
+	                null,
+	                "Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	            )
 	        );
 	    }
 	});
@@ -113,7 +202,13 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouter.Router,
 	    { history: _reactRouter.hashHistory || _reactRouter.browserHistory },
-	    _react2.default.createElement(_reactRouter.Route, { path: "/", component: App })
+	    _react2.default.createElement(
+	        _reactRouter.Route,
+	        { path: "/", component: App },
+	        _react2.default.createElement(_reactRouter.IndexRoute, { component: About }),
+	        _react2.default.createElement(_reactRouter.Route, { path: "projects", component: Projects }),
+	        _react2.default.createElement(_reactRouter.Route, { path: "contact", component: Contact })
+	    )
 	), document.getElementById("app"));
 
 /***/ },

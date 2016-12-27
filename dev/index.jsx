@@ -9,14 +9,67 @@ var App = React.createClass({
             <div>
                 <h1>Simple SPA</h1>
                 <ul className="header">
-                    <li>About</li>
-                    <li>Projects</li>
-                    <li>Contact</li>
+                    <li><IndexLink to="/" activeClassName="active">About</IndexLink></li>
+                    <li><Link to="/projects" activeClassName="active">Projects</Link></li>
+                    <li><Link to="/contact" activeClassName="active">Contact</Link></li>
                 </ul>
                 <div className="content">
+                    {this.props.children}
                 </div>
             </div>
         )
+    }
+});
+
+var About = React.createClass({
+    render: function() {
+        return (
+            <div>
+                <h2>HELLO</h2>
+                <p>Cras facilisis urna ornare ex volutpat, et
+                convallis erat elementum. Ut aliquam, ipsum vitae
+                gravida suscipit, metus dui bibendum est, eget rhoncus nibh
+                metus nec massa. Maecenas hendrerit laoreet augue
+                nec molestie. Cum sociis natoque penatibus et magnis
+                dis parturient montes, nascetur ridiculus mus.</p>
+
+                <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
+            </div>
+        );
+    }
+});
+
+var Projects = React.createClass({
+    render: function() {
+        return (
+            <div>
+                <h2>Heres my projects</h2>
+                <p>Cras facilisis urna ornare ex volutpat, et
+                convallis erat elementum. Ut aliquam, ipsum vitae
+                gravida suscipit, metus dui bibendum est, eget rhoncus nibh
+                metus nec massa. Maecenas hendrerit laoreet augue
+                nec molestie. Cum sociis natoque penatibus et magnis
+                dis parturient montes, nascetur ridiculus mus.</p>
+
+                <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
+            </div>
+        );
+    }
+});
+
+var Contact = React.createClass({
+    render: function() {
+        return (
+            <div>
+                <h2>Got Questions?</h2>
+                <p>Cras facilisis urna ornare ex volutpat, et
+                convallis erat elementum. Ut aliquam, ipsum vitae
+                gravida suscipit, metus dui bibendum est, eget rhoncus nibh
+                metus nec massa. Maecenas hendrerit laoreet augue
+                nec molestie. Cum sociis natoque penatibus et magnis
+                dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+        );
     }
 });
 
@@ -33,6 +86,9 @@ var Project = React.createClass({
 ReactDOM.render((
         <Router history={hashHistory||browserHistory}>
             <Route path="/" component={App}>
+                <IndexRoute component={About}/>
+                <Route path="projects" component={Projects}/>
+                <Route path="contact" component={Contact}/>
             </Route>
         </Router>
     ),
