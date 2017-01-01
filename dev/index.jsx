@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {browserHistory, IndexRoute, IndexLink, Link, hashHistory, Router, Route} from 'react-router';
-import HelloWorld from "./HelloWorld.jsx";
+import Projects from "./project.jsx";
 
 var App = React.createClass({
     render: function(){
@@ -39,24 +39,6 @@ var About = React.createClass({
     }
 });
 
-var Projects = React.createClass({
-    render: function() {
-        return (
-            <div>
-                <h2>Heres my projects</h2>
-                <p>Cras facilisis urna ornare ex volutpat, et
-                convallis erat elementum. Ut aliquam, ipsum vitae
-                gravida suscipit, metus dui bibendum est, eget rhoncus nibh
-                metus nec massa. Maecenas hendrerit laoreet augue
-                nec molestie. Cum sociis natoque penatibus et magnis
-                dis parturient montes, nascetur ridiculus mus.</p>
-
-                <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
-            </div>
-        );
-    }
-});
-
 var Contact = React.createClass({
     render: function() {
         return (
@@ -68,16 +50,6 @@ var Contact = React.createClass({
                 metus nec massa. Maecenas hendrerit laoreet augue
                 nec molestie. Cum sociis natoque penatibus et magnis
                 dis parturient montes, nascetur ridiculus mus.</p>
-            </div>
-        );
-    }
-});
-
-var Project = React.createClass({
-    render: function() {
-        return (
-            <div>
-                <img src={this.props.imgURL}/>
             </div>
         );
     }

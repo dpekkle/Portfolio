@@ -56,9 +56,9 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _HelloWorld = __webpack_require__(233);
+	var _project = __webpack_require__(233);
 
-	var _HelloWorld2 = _interopRequireDefault(_HelloWorld);
+	var _project2 = _interopRequireDefault(_project);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -140,32 +140,6 @@
 	    }
 	});
 
-	var Projects = _react2.default.createClass({
-	    displayName: "Projects",
-
-	    render: function render() {
-	        return _react2.default.createElement(
-	            "div",
-	            null,
-	            _react2.default.createElement(
-	                "h2",
-	                null,
-	                "Heres my projects"
-	            ),
-	            _react2.default.createElement(
-	                "p",
-	                null,
-	                "Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-	            ),
-	            _react2.default.createElement(
-	                "p",
-	                null,
-	                "Duis a turpis sed lacus dapibus elementum sed eu lectus."
-	            )
-	        );
-	    }
-	});
-
 	var Contact = _react2.default.createClass({
 	    displayName: "Contact",
 
@@ -187,18 +161,6 @@
 	    }
 	});
 
-	var Project = _react2.default.createClass({
-	    displayName: "Project",
-
-	    render: function render() {
-	        return _react2.default.createElement(
-	            "div",
-	            null,
-	            _react2.default.createElement("img", { src: this.props.imgURL })
-	        );
-	    }
-	});
-
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouter.Router,
 	    { history: _reactRouter.hashHistory || _reactRouter.browserHistory },
@@ -206,7 +168,7 @@
 	        _reactRouter.Route,
 	        { path: "/", component: App },
 	        _react2.default.createElement(_reactRouter.IndexRoute, { component: About }),
-	        _react2.default.createElement(_reactRouter.Route, { path: "projects", component: Projects }),
+	        _react2.default.createElement(_reactRouter.Route, { path: "projects", component: _project2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: "contact", component: Contact })
 	    )
 	), document.getElementById("app"));
@@ -26545,25 +26507,122 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var HelloWorld = _react2.default.createClass({
-		displayName: "HelloWorld",
-
-		handleClick: function handleClick() {
-			console.log(this);
-		},
+	var Projects = _react2.default.createClass({
+		displayName: "Projects",
 
 		render: function render() {
 			return _react2.default.createElement(
-				"p",
-				{ className: "helloStyle", onClick: this.handleClick },
-				"Hello, ",
-				this.props.greetTarget,
-				"!"
+				"div",
+				null,
+				_react2.default.createElement(
+					"h2",
+					null,
+					"Heres my projects"
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "projects" },
+					_react2.default.createElement(
+						Project,
+						{
+							title: "FantasyMaker",
+							image: "http://www.coolgames.com/images/logo.png",
+							play: "http://fantasymakergame.com/",
+							github: "https://github.com/dpekkle/FantasyMaker"
+						},
+						"A choose your own adventure game creator.",
+						_react2.default.createElement(
+							"ul",
+							null,
+							_react2.default.createElement(
+								"li",
+								null,
+								"Create pages and customise their appearance."
+							),
+							_react2.default.createElement(
+								"li",
+								null,
+								"Import audio, video, images and text"
+							),
+							_react2.default.createElement(
+								"li",
+								null,
+								"Connect pages together, with support for decision automation."
+							)
+						)
+					),
+					_react2.default.createElement(
+						Project,
+						{
+							title: "InfinityDrive",
+							image: "http://www.coolgames.com/images/logo.png",
+							play: "https://dpekkle.github.io/infinitydrive/",
+							github: "https://github.com/dpekkle/infinitydrive"
+						},
+						"An incremental idle game made using the native HTML5 canvas feature."
+					)
+				)
 			);
 		}
 	});
 
-	exports.default = HelloWorld;
+	var Project = _react2.default.createClass({
+		displayName: "Project",
+
+		render: function render() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "projectStyle", onClick: this.handleClick },
+				_react2.default.createElement(ProjectTitle, this.props),
+				_react2.default.createElement(ProjectDesc, this.props)
+			);
+		}
+	});
+
+	var ProjectTitle = _react2.default.createClass({
+		displayName: "ProjectTitle",
+
+		render: function render() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "projectTitle" },
+				_react2.default.createElement(
+					"h1",
+					null,
+					this.props.title
+				),
+				_react2.default.createElement("img", { src: this.props.image })
+			);
+		}
+	});
+	var ProjectDesc = _react2.default.createClass({
+		displayName: "ProjectDesc",
+
+		render: function render() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "projectDesc" },
+				_react2.default.createElement(
+					"div",
+					{ className: "projectIcons" },
+					_react2.default.createElement(
+						"a",
+						{ className: "Icon", href: this.props.play, target: "_blank" },
+						_react2.default.createElement("img", { src: "http://image.flaticon.com/icons/png/512/0/375.png", width: "40px", height: "40px" })
+					),
+					_react2.default.createElement(
+						"a",
+						{ className: "Icon", href: this.props.github, target: "_blank" },
+						_react2.default.createElement("img", { src: "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png", width: "40px", height: "40px" })
+					)
+				),
+				_react2.default.createElement("br", null),
+				this.props.children
+			);
+		}
+	});
+
+	exports.default = Projects;
 
 /***/ }
 /******/ ]);
