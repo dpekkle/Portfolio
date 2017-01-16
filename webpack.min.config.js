@@ -1,20 +1,30 @@
 var webpack = require("webpack");
 var path = require("path");
 
-var DEV = path.resolve(__dirname, "dev");
+var JSX = path.resolve(__dirname, "dev/jsx");
+var SCSS = path.resolve(__dirname, "dev/SCSS");
+
 var OUTPUT = path.resolve(__dirname, "output");
 
 var config = {
-	entry: DEV + "/index.jsx",
+	entry: JSX + "/index.jsx",
 	output: {
 		path: OUTPUT,
 		filename: "prod.js"
 	},
     module: {
-        loaders: [{
-            include: DEV,
-            loader: "babel",
-        }]
+        loaders: [
+            {
+                include: SCSS,
+                // test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('css!sass')
+            },
+            {
+                include: JSX,
+                // test: /\.jsx$/,
+                loader: "babel",
+            }
+        ]
     },
     plugins: [
 	    new webpack.DefinePlugin({
