@@ -1,10 +1,15 @@
+//Production version
+//	Minifies file size of javascript
+//	Outputs a CSS file to link to
+
 var webpack = require("webpack");
 var path = require("path");
 
 var JSX = path.resolve(__dirname, "dev/jsx");
 var SCSS = path.resolve(__dirname, "dev/SCSS");
+var OUTPUT = path.resolve(__dirname, "output/prod");
 
-var OUTPUT = path.resolve(__dirname, "output");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = {
 	entry: JSX + "/index.jsx",
@@ -27,6 +32,9 @@ var config = {
         ]
     },
     plugins: [
+    	new ExtractTextPlugin('style.css', {
+    		allChunks: true
+    	}),
 	    new webpack.DefinePlugin({
 			'process.env':{
 	        	'NODE_ENV': JSON.stringify('production') //tells react to use the production version

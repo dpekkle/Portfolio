@@ -3,8 +3,7 @@ var path = require("path");
 
 var JSX = path.resolve(__dirname, "dev/jsx");
 var SCSS = path.resolve(__dirname, "dev/SCSS");
-
-var OUTPUT = path.resolve(__dirname, "output");
+var OUTPUT = path.resolve(__dirname, "output/dev");
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
