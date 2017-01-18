@@ -4,7 +4,7 @@
   "description": "Code resume with react",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack",
+    "dev": "wepback-dev-server --progress --colors",
     "prod": "webpack --config ./webpack.min.config.js"
   },
   "author": "dpekkle",
